@@ -33,6 +33,8 @@ The terraform CLI installation instructions have changed due ti gpg keyring chan
 ### Consideration for Linux Distribution
 
 This project was built with Ubuntu, so might need to ensure the type of linux distro you use when implementing this project.
+
+####
 [How to check OS version in linux](https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/)
 Example of checking os version
 ```sh
@@ -82,10 +84,16 @@ UBUNTU_CODENAME=jammy
 alternatively:
 
 ```sh
-chmod 777 ./bin/install_terraform_CLI
+chmod 744 ./bin/install_terraform_CLI
 
 ```
+https://en.wikipedia.org/wiki/chmod
 
+### Github Lifecycle (Before, init, comand)
+
+We need to be careful when using init because it will not rerun when restarting an existing workspace.
+
+https://www.gitpod.io/docs/configure/workspaces/tasks
 
 ### Refactoring into Bash Scripts
 
