@@ -106,3 +106,47 @@ This bash script is located here: [./bin/install_terraform_CLI(./bin/install_ter
 - This wil allow better portability for other projects that need to install Terraform CLI.
 
  
+ ### Working with Env Vars
+
+ #### env command
+
+ * We can list out all Environment Variables(Env Vars) using the `env` command.
+ ** We can filter specific env vars using grep e.g: `env | grep AWS_`
+
+ #### Setting and Unsetting Env Vars
+
+ In the terminal, we can set an env var using `export HELLO = 'World'`
+ We can unset using `unset HELLO`
+
+ Env var can be set temporarily when just running a command
+ ```sh
+ HELLO = 'World' ./bin/print_message
+ ```
+
+ Within a bash script, env var can be set without writing "export" eg:
+ ```sh
+ #!/usr/bin/env bash
+ HELLO = 'World'
+    echo $HELLO
+ ```
+
+ ### Pinting Vars
+ We can print an env var using echo eg:
+ `echo $HELLO`
+
+ #### Scoping of Env Vars
+ When you open up a new bash terminal in vscode it will not be aware of env vars that have been set in another window
+
+ If you want Env Vars to persist above all future bash terminal, that are opened you need to set env vars in your bash profile e.g: `bash_profile`
+
+
+ #### Persisting Env Vars in Gitpod
+ This can be done by storing them in gitpod secrets storage
+
+ ```sh
+ gp env HELLO = 'World'
+ ``` 
+ All future workspaces launched will set the env vars for all bash terminals opened in those workspaces.
+ 
+You can also set the env vars `.gitpod.yml` but that should only contain one sensitive env vars
+
