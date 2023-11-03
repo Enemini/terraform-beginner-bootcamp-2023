@@ -147,5 +147,6 @@ This bash script is located here: [./bin/install_terraform_CLI(./bin/install_ter
  gp env HELLO = 'World'
  ``` 
  All future workspaces launched will set the env vars for all bash terminals opened in those workspaces.
+ 
 You can also set the env vars `.gitpod.yml` but that should only contain one sensitive env vars
 
