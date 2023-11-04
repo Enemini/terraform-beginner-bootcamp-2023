@@ -150,3 +150,26 @@ This bash script is located here: [./bin/install_terraform_CLI(./bin/install_ter
  
 You can also set the env vars `.gitpod.yml` but that should only contain one sensitive env vars
 
+
+#### AWS CLI Installation
+
+AWS CLI is installed for the project through the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Getting-started install (AWS CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+[AWS CLI env vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+We can check if our aws credentials is configured correctly by running the following AWS CLI command:
+```sh
+aws sts get-caller-identity
+```
+
+If this is successful, you should see a json payload that looks like this: 
+```json
+{
+    "UserId": "AIDPS8NILCGCLXY1WNX3Y",
+    "Account": "198758415444",
+    "Arn": "arn:aws:iam::198458413444:user/terraform-beginner-bootcamp-user"
+}
+```
+We will need to generate AWS CLI credentials from IAM user in order to use the AWS CLI
