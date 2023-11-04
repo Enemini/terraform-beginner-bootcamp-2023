@@ -177,7 +177,7 @@ We will need to generate AWS CLI credentials from IAM user in order to use the A
 
 ### Terraform Basics
 
-####Terraform Registry
+#### Terraform Registry
 Terraform sources their providers and modules for the Terraform registry which is located at [registry.terraform.io](https:registry.terraform.io)
 
 **Providers** is an interface to APIs that will allow to create resources in terraform.
