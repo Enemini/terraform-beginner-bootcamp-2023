@@ -1,5 +1,14 @@
  # making changes to this file as a test exercise
 terraform {
+ 
+  cloud {
+    organization = "vikikef2"
+
+    workspaces{
+      name = "terra-house-1"
+    }
+  }
+
   required_providers {
     random = {
       source = "hashicorp/random"

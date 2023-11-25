@@ -217,3 +217,34 @@ The file **should not be committed** to your version control system.
 This file can contain sensitive data. If you lose this file, you lose knowing the state of your infrastructure.
 
 `.terraformtfstate.backup` is the previous state file state.
+
+## Issues with Terraform Cloud and Gitpod Workspace
+
+When attempting to run `terraform login` it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VSCode in the browser.
+
+The workaround is manually generate a token in Terraform Cloud
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+Then create the file manually here:
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+
+```
+Provide the following code (replace your token in the file):
+
+```json
+{
+    "credentials": {
+        "app.terraform.io": {
+            "token": "Your-Terraform-Cloud-Token"
+        }
+    }
+}
+
+```
+Then open the  file
