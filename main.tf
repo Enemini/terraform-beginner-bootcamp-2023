@@ -42,12 +42,15 @@ resource "aws_s3_bucket" "example" {
   #bucket naming rules
   #https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
   bucket = random_string.bucket_name.result
+
+  tags = {
+      UserUUID = "var.user_uuid"
+
+  }
+
 }
 
-output "random_bucket_name_id"{
-    value = random_string.bucket_name.id
-}
 
-output "random_bucket_name_result"{
-    value = random_string.bucket_name.result
-}
+
+
+    

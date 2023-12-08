@@ -254,3 +254,18 @@ Provide the following code (replace your token in the file):
 
 ```
 Then open the  file
+
+## Root Module Structure
+
+Our root module structure is as follows:
+
+- PROJECT_ROOT
+    - variable.tf #Stores the structure of input variables
+    - main.tf #Everything else
+    - outputs.tf #Defined required providers and their configuration
+    - providers.tf #Stores our outputs
+    - terraform.tfvars #The dataof variables we want to load into our terraform project
+    - REAADME.md - #Required for root module
+
+[Standard Structured Module](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
