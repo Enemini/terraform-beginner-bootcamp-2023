@@ -269,3 +269,43 @@ Our root module structure is as follows:
 
 [Standard Structured Module](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 
+## Fix Manual Configuration
+If someone goeas and delete or modifies cloud resource manually through ClickOps. If we run Terraform plan is with attempt to put our infrastructure back into the expected state fixing Configuration Drift.
+
+## Fix using Terraform Refresh
+```sh
+terraform apply -refresh-only -auto-approve
+```
+
+## Terraform Modules
+
+### Terraform Module Structure
+
+It is recommended to place modules in a 'modules' directory when locally developing modules. 
+
+### Passing Input Variables
+
+We can pass input variables to our modules.
+The module has to declare the terraform variables in its own variables.tf
+
+
+```tf
+module "terrahouse_aws" {
+    source = "./modules/terrahouse_aws"
+    user_uuid = var_user_uuid
+    bucket_name = var.bucket_name
+}
+```
+
+### Modules Sources
+
+Using the source, we can import the module from various places eg: 
+- Locally
+- Github
+- Terraform Registry
+
+```tf
+module "terrahouse_aws" {
+    source = "./modules/terrahouse_aws"
+}
+```
